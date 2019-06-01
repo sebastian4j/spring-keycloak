@@ -7,23 +7,28 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @SpringBootApplication
 @RequestMapping
+@CrossOrigin(allowCredentials="true")
 public class SbKeycloakApplication {
-  @GetMapping(path = "/customers")
-  @ResponseBody
-  public ResponseEntity<List<Persona>> customers(Principal principal, Model model) {
+  @GetMapping(path = "/")
+  public ResponseEntity<Persona> saludo() {
+    return ResponseEntity.ok(new Persona(3, "tres"));
+  }
+
+  @GetMapping(path = "/personas")
+  public ResponseEntity<List<Persona>> customers(final Principal principal, final Model model) {
     final var personas = new ArrayList<Persona>();
     personas.add(new Persona(1, "uno"));
     personas.add(new Persona(2, "dos"));
     return ResponseEntity.ok(personas);
   }
 
-  public static void main(String[] args) {
+  public static void main(final String[] args) {
     SpringApplication.run(SbKeycloakApplication.class, args);
   }
 
