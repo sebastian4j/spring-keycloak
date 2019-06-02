@@ -14,4 +14,5 @@ Este proyecto está formado por 3 componentes:
 * También un usuario que esté asociado al grupo user
 
 
-TODO: enlace al blog ;)
+### Enlace al blog:
+https://javasofias.blogspot.com/2019/06/spring-boot-spring-security-react.html
