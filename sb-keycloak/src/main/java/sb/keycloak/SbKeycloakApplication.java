@@ -11,10 +11,16 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ *
+ * @author Sebastián Ávila A.
+ *
+ */
 @SpringBootApplication
 @RequestMapping
 @CrossOrigin(allowCredentials="true")
 public class SbKeycloakApplication {
+
   @GetMapping(path = "/")
   public ResponseEntity<Persona> saludo() {
     return ResponseEntity.ok(new Persona(3, "tres"));
